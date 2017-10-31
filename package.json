@@ -1,0 +1,25 @@
+{
+  "name": "typescript-fsa-router",
+  "version": "0.1.0",
+  "description": "A Redux First React Router written in typescript",
+  "main": "dist/index.js",
+  "author": "Stefan Knoch",
+  "license": "MIT",
+  "typings": "./dist/index",
+  "scripts": {
+    "pretest": "npm run lint",
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "lint": "tslint -c tslint.json ./src/*"
+  },
+  "dependencies": {
+    "@types/debug": "^0.0.30",
+    "@types/history": "^4.6.1",
+    "@types/node": "^8.0.47",
+    "@types/redux": "^3.6.0",
+    "debug": "^3.1.0",
+    "history": "^4.7.2",
+    "redux": "^3.7.2"
+  },
+  "peerDependencies": {}
+}
