@@ -14,12 +14,14 @@ export interface ILocationChangeActionParams {
 export const startListener = <S>(history: History, store: Store<S>, locationChangeAction: (payload: ILocationChangeActionParams) => AnyAction ) => {
   debug('init listener');
 
-  store.dispatch(locationChangeAction({
-    pathname: history.location.pathname,
-    search: history.location.search,
-    hash: history.location.hash,
-    state: history.location.state,
-  }));
+  setTimeout(() => {
+    store.dispatch(locationChangeAction({
+      pathname: history.location.pathname,
+      search: history.location.search,
+      hash: history.location.hash,
+      state: history.location.state,
+    }));
+  }, 0);
 
   history.listen((location: Location, action: Action) => {
     debug('dispatch location change', location, action);
@@ -33,9 +35,7 @@ export const startListener = <S>(history: History, store: Store<S>, locationChan
   });
 }
 
-export const routerMiddleware = <S>(history: History) => (api: MiddlewareAPI<S>) => (next: any) => (action: any) => {
-  debug('middleware', action);
-  
+export const routerMiddleware = <S>(history: History) => (api: MiddlewareAPI<S>) => (next: any) => (action: any) => {  
   switch (action.type) {
     case 'ROUTER/PUSH':
       debug('push', action.payload)
