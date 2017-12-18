@@ -7,8 +7,8 @@
   "license": "MIT",
   "typings": "./dist/index",
   "scripts": {
-    "postinstall": "yarn build",
-    "pretest": "yarn lint",
+    "postinstall": "npm run build",
+    "pretest": "npm run lint",
     "build": "tsc",
     "build:watch": "tsc -w",
     "lint": "tslint -c tslint.json ./src/*"
